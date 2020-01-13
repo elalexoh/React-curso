@@ -1,0 +1,44 @@
+ class HelloWorld extends React.Component {
+   state = {
+     show: true
+   }
+   toggleShow = () => {
+     this.setState({show: !this.state.show})
+   }
+   render(){
+     if (this.state.show) {
+      return (
+        <div id="hello">
+          <h1> {this.props.subtitle} </h1>
+          {this.props.myText}
+          <button onClick={this.toggleShow}>Toggle Show</button>
+        </div>
+      )
+     }else{
+      return <h1>
+        No hay elementos 
+        <button onClick={this.toggleShow}>Toggle Show</button>
+        </h1>
+    }
+   }
+ }
+// Formas alternativas de crear el app
+
+// class App extends React.Component {
+//   render(h) {
+//     return <div> This is my component < HelloWorld/> </div>
+//   }
+// }
+
+// const App = () => <div>This is my component <HelloWorld/></div>
+
+function App() {
+  return (
+    <div>
+      this is my component: 
+      <HelloWorld myText="Hello deeply" subtitle="Lorem ipsun"/> 
+      <HelloWorld myText="Hello Frederick" subtitle="Lorem ipsun"/> 
+      <HelloWorld myText="Hello elalexoh" subtitle="Lorem ipsun"/>
+    </div>
+  );
+}
